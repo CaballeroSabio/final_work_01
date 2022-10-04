@@ -1,25 +1,34 @@
 ﻿// Напишите программу, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.
 
-Console.Clear();
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
+string[] arrayOne = new string[] {"77", "rain", "people", "account", "45", "one", "two", "three","1234", "to","45897"};
+string[] arrayTwo = new string[arrayOne.Length];
 
-int GetSum(int number)
+void SecondArray(string[] arrayOne, string[] arrayTwo)
 {
-    int sum = 0;
-    for (int i = 1; i <= num; i++)
+    int count = 0;
+    for (int i = 0; i < arrayOne.Length; i++)
     {
-        sum = sum + i;
+        if (arrayOne[i].Length <= 3)
+        {
+            arrayTwo[count] = arrayOne[i];
+            count++;
+        }
     }
-    return sum;
 }
 
-void Print(int n, int res)
+void PrintArray(string[] array)
 {
-    Console.WriteLine($"Сумма чисел от 1 до {n} = {res}");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
 }
 
-int result = GetSum(num);
-Print(num, result);
+Console.Clear();
+SecondArray(arrayOne, arrayTwo);
+Console.Write("Исходный массив -> ");
+PrintArray(arrayOne);
+Console.Write("Образованный из исходного массив -> ");
+PrintArray(arrayTwo);
 
-Console.WriteLine();
